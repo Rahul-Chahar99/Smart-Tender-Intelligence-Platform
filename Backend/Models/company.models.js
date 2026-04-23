@@ -34,6 +34,12 @@ const companySchema = new mongoose.Schema(
     location: {
       type: String,
     },
+    appliedTenders: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tender",
+      },
+    ],
     refreshToken: {
       type: String,
     },

@@ -18,6 +18,7 @@ function Tenderlist() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [total, setTotal] = useState(0);
+  const [applying, setApplying] = useState(null);
   const limit = 10;
 
   const userInfo = useSelector((state) => state.auth.userInfo);
@@ -41,6 +42,22 @@ function Tenderlist() {
       setIsLoading(false);
     }
   }, [userId, page, search, category, source]);
+
+  const handleApply = async (tenderId) => {
+    setApplying(tenderId);
+    try {
+      await axios.post(`/api/v1/company/tenders/${tenderId}/apply`);
+      toast.success("Successfully applied for tender!");
+      // Update UI state immediately without refreshing the page
+      setTenders((prev) =>
+        prev.map((t) => (t._id === tenderId ? { ...t, isApplied: true } : t))
+      );
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to apply for tender");
+    } finally {
+      setApplying(null);
+    }
+  };
 
   // Debounce search input
   useEffect(() => {
@@ -177,26 +194,42 @@ function Tenderlist() {
                 </div>
 
                 {/* Requirements */}
-                {tender.requirements?.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-[#2a2a2a]">
-                    <p className="text-xs text-[#a3a3a3] uppercase tracking-wide mb-2">Requirements</p>
-                    <div className="flex flex-wrap gap-2">
-                      {tender.requirements[0]?.certifications?.map((cert) => (
-                        <span
-                          key={cert}
-                          className="px-2 py-0.5 rounded text-xs bg-[#111111] text-[#a3a3a3] border border-[#2a2a2a]"
-                        >
-                          {cert}
-                        </span>
-                      ))}
-                      {tender.requirements[0]?.turnover && (
-                        <span className="px-2 py-0.5 rounded text-xs bg-[#111111] text-[#a3a3a3] border border-[#2a2a2a]">
-                          Min Turnover: {formatValue(tender.requirements[0].turnover)}
-                        </span>
-                      )}
-                    </div>
+                <div className="mt-4 pt-4 border-t border-[#2a2a2a] flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+                  <div className="flex-1">
+                    {tender.requirements?.length > 0 && (
+                      <>
+                        <p className="text-xs text-[#a3a3a3] uppercase tracking-wide mb-2">Requirements</p>
+                        <div className="flex flex-wrap gap-2">
+                          {tender.requirements[0]?.certifications?.map((cert) => (
+                            <span
+                              key={cert}
+                              className="px-2 py-0.5 rounded text-xs bg-[#111111] text-[#a3a3a3] border border-[#2a2a2a]"
+                            >
+                              {cert}
+                            </span>
+                          ))}
+                          {tender.requirements[0]?.turnover && (
+                            <span className="px-2 py-0.5 rounded text-xs bg-[#111111] text-[#a3a3a3] border border-[#2a2a2a]">
+                              Min Turnover: {formatValue(tender.requirements[0].turnover)}
+                            </span>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </div>
-                )}
+                  
+                  <button
+                    disabled={tender.isApplied || applying === tender._id}
+                    onClick={() => handleApply(tender._id)}
+                    className={`flex-shrink-0 px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                      tender.isApplied
+                        ? "bg-green-900/30 text-green-400 border border-green-800/50 cursor-not-allowed"
+                        : "bg-[#f5f5f0] text-[#0a0a0a] hover:bg-[#e8e8e0]"
+                    }`}
+                  >
+                    {applying === tender._id ? "Applying..." : tender.isApplied ? "Applied ✓" : "Apply Now"}
+                  </button>
+                </div>
               </div>
             ))}
           </div>

@@ -283,6 +283,7 @@ const getTenders = asyncHandler(async (req, res) => {
     { $match: query },
     {
       $addFields: {
+        isApplied: { $in: ["$_id", companydetails.appliedTenders || []] },
         matchScore: {
           $add: [
             {
@@ -341,6 +342,31 @@ const getTenders = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { tenders, total, totalPages }, "Tenders fetched successfully"));
 });
 
+// Apply for a tender
+const applyForTender = asyncHandler(async (req, res) => {
+  const { tenderId } = req.params;
+  const companyId = req.company?._id;
+
+  if (!companyId) {
+    throw new ApiError(401, "Unauthorized request");
+  }
+
+  const tender = await Tender.findById(tenderId);
+  if (!tender) {
+    throw new ApiError(404, "Tender not found");
+  }
+
+  const company = await Company.findById(companyId);
+  if (company.appliedTenders.includes(tenderId)) {
+    throw new ApiError(400, "You have already applied for this tender");
+  }
+
+  company.appliedTenders.push(tenderId);
+  await company.save();
+
+  return res.status(200).json(new ApiResponse(200, {}, "Successfully applied for tender"));
+});
+
 //Goole login controller
 
-export { registerUser, logInUser, logOutUser, getUser, refreshAcessToken ,getTenders};
+export { registerUser, logInUser, logOutUser, getUser, refreshAcessToken ,getTenders, applyForTender};
