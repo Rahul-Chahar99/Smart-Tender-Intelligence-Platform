@@ -247,8 +247,6 @@ const getTenders = asyncHandler(async (req, res) => {
   if (!companydetails) {
     throw new ApiError(404, "Company not found");
   }
-  console.log("company details",companydetails);
-  
 
   const parsedPage = parseInt(page, 10);
   const parsedLimit = parseInt(limit, 10);
@@ -345,10 +343,8 @@ const getTenders = asyncHandler(async (req, res) => {
   ];
 
   const result = await Tender.aggregate(pipeline);
-  console.log("Aggregation Result:", JSON.stringify(result, null, 2));
   
   const tenders = result[0]?.tenders || [];
-  console.log("Fetched Tenders:", tenders);
   const total = result[0]?.metadata[0]?.total || 0;
   const totalPages = Math.ceil(total / parsedLimit) || 1;
 

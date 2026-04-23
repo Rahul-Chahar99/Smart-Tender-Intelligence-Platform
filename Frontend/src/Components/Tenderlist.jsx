@@ -23,8 +23,6 @@ function Tenderlist() {
   const userInfo = useSelector((state) => state.auth.userInfo);
   const userId = userInfo?._id;
 
-  console.log("User Info from Tenderlist:", userInfo?._id);
-
   const fetchTenders = useCallback(async () => {
     if (!userId) return; // Wait until Redux provides the userId before fetching
 
