@@ -43,7 +43,7 @@ app.use("/api/v1/company", companyRouter);
 
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {
-  console.error("Global Error:", err); // Log error for server-side debugging
+  console.error("Global Error:", err); 
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
   const errors = err.errors || [];

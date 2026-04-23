@@ -11,21 +11,7 @@ const TenderList = lazy(() => import("./Components/Tenderlist.jsx"));
 
 const Login = lazy(() => import("./Components/Login/Login.jsx"));
 const Signup = lazy(() => import("./Components/Signup.jsx"));
-// const Profile = lazy(() => import("./Components/Profile.jsx"));
-// const Admin_DashBoard = lazy(() => import("./Components/Admin_DashBoard.jsx"));
-// const Customers = lazy(() => import("./Components/Customers.jsx"));
-// const Contact = lazy(() => import("./Components/Contact.jsx"));
-// const ContactForms = lazy(() => import("./Components/ContactForms.jsx"));
-// const Enginners = lazy(() => import("./Components/Enginners.jsx"));
-// const About = lazy(() => import("./Components/About.jsx"));
-// const UpdatePassword = lazy(() => import("./Components/UpdatePassword.jsx"));
-// const BookEngineerForm = lazy(
-//   () => import("./Components/BookEngineerForm.jsx"),
-// );
-// const EngineerRequests = lazy(()=>
-//    import("./Components/EngineerRequests.jsx"),
-// );
-// const BankList =lazy(()=>import('./Components/BankList.jsx'))
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
