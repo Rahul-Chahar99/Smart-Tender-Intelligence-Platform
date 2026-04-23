@@ -1,0 +1,272 @@
+[
+  {
+    "tenderId": "GEM-2023-1045",
+    "source": "GeM",
+    "title": "Supply of Enterprise Laptops and Servers",
+    "description": "Procurement of 500 high-performance laptops and 20 enterprise-grade servers for public schools.",
+    "category": "IT Equipment",
+    "value": 25000000,
+    "deadlines": {
+      "submissionDate": "2024-03-15T18:00:00.000Z",
+      "openingDate": "2024-03-16T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 50000000,
+        "certifications": ["ISO 9001", "ISO 27001"]
+      }
+    ]
+  },
+  {
+    "tenderId": "EPROC-MH-9921",
+    "source": "eProcurement",
+    "title": "Construction of Highway Overpass",
+    "description": "EPC contract for building a 5km highway overpass connecting the western and eastern industrial corridors.",
+    "category": "Infrastructure",
+    "value": 850000000,
+    "deadlines": {
+      "submissionDate": "2024-04-20T17:00:00.000Z",
+      "openingDate": "2024-04-22T09:30:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 1500000000,
+        "certifications": ["ISO 14001", "OHSAS 18001"]
+      }
+    ]
+  },
+  {
+    "tenderId": "MOCKAPI-7732",
+    "source": "MockAPI",
+    "title": "Annual Maintenance Contract for HVAC Systems",
+    "description": "Comprehensive AMC for HVAC systems installed across 5 government administrative buildings.",
+    "category": "Maintenance Services",
+    "value": 1200000,
+    "deadlines": {
+      "submissionDate": "2024-02-28T15:00:00.000Z",
+      "openingDate": "2024-03-01T11:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 2500000,
+        "certifications": ["HVAC Technician Class A"]
+      }
+    ]
+  },
+  {
+    "tenderId": "GEM-2024-0012",
+    "source": "GeM",
+    "title": "Solar Panel Installation for Government Offices",
+    "description": "Supply, installation, and commissioning of 500kW rooftop solar power plants across multiple locations.",
+    "category": "Renewable Energy",
+    "value": 35000000,
+    "deadlines": {
+      "submissionDate": "2024-05-10T18:00:00.000Z",
+      "openingDate": "2024-05-12T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 75000000,
+        "certifications": ["MNRE Approved", "ISO 9001"]
+      }
+    ]
+  },
+  {
+    "tenderId": "EPROC-DL-4451",
+    "source": "eProcurement",
+    "title": "Procurement of MRI and CT Scan Machines",
+    "description": "Supply and installation of advanced medical imaging equipment for district hospitals.",
+    "category": "Medical Equipment",
+    "value": 120000000,
+    "deadlines": {
+      "submissionDate": "2024-06-15T17:00:00.000Z",
+      "openingDate": "2024-06-16T11:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 300000000,
+        "certifications": ["CE Mark", "FDA Approved", "ISO 13485"]
+      }
+    ]
+  },
+  {
+    "tenderId": "MOCKAPI-8841",
+    "source": "MockAPI",
+    "title": "City-wide CCTV Surveillance Network",
+    "description": "Deployment of 2000 IP cameras with AI-based video analytics for traffic and security monitoring.",
+    "category": "Security Systems",
+    "value": 65000000,
+    "deadlines": {
+      "submissionDate": "2024-03-25T15:00:00.000Z",
+      "openingDate": "2024-03-26T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 100000000,
+        "certifications": ["ISO 27001", "CMMI Level 3"]
+      }
+    ]
+  },
+  {
+    "tenderId": "GEM-2024-0301",
+    "source": "GeM",
+    "title": "Cloud Hosting and Data Center Services",
+    "description": "Managed cloud hosting services for state citizen portals with disaster recovery.",
+    "category": "IT Services",
+    "value": 45000000,
+    "deadlines": {
+      "submissionDate": "2024-04-05T18:00:00.000Z",
+      "openingDate": "2024-04-06T11:30:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 200000000,
+        "certifications": ["MeitY Empaneled", "Tier III Data Center"]
+      }
+    ]
+  },
+  {
+    "tenderId": "EPROC-UP-1120",
+    "source": "eProcurement",
+    "title": "Supply of Ergonomic Office Furniture",
+    "description": "Procurement of desks, chairs, and storage units for the newly constructed secretariat building.",
+    "category": "General Supply",
+    "value": 8500000,
+    "deadlines": {
+      "submissionDate": "2024-02-15T14:00:00.000Z",
+      "openingDate": "2024-02-16T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 15000000,
+        "certifications": ["BIFMA Certified"]
+      }
+    ]
+  },
+  {
+    "tenderId": "MOCKAPI-9902",
+    "source": "MockAPI",
+    "title": "Road Maintenance and Pothole Repair Contract",
+    "description": "Annual contract for the maintenance and repair of arterial roads in the metropolitan zone.",
+    "category": "Infrastructure",
+    "value": 22000000,
+    "deadlines": {
+      "submissionDate": "2024-03-10T17:00:00.000Z",
+      "openingDate": "2024-03-11T12:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 50000000,
+        "certifications": ["Class A Contractor License"]
+      }
+    ]
+  },
+  {
+    "tenderId": "GEM-2024-0505",
+    "source": "GeM",
+    "title": "Smart City Traffic Management Software",
+    "description": "Development and implementation of an integrated traffic control software system.",
+    "category": "Software Development",
+    "value": 18000000,
+    "deadlines": {
+      "submissionDate": "2024-07-01T18:00:00.000Z",
+      "openingDate": "2024-07-02T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 40000000,
+        "certifications": ["ISO 9001", "CMMI Level 5"]
+      }
+    ]
+  },
+  {
+    "tenderId": "EPROC-KA-7765",
+    "source": "eProcurement",
+    "title": "Procurement of Electric Public Transport Buses",
+    "description": "Supply of 150 low-floor electric buses including setup of charging infrastructure at depots.",
+    "category": "Automotive",
+    "value": 1500000000,
+    "deadlines": {
+      "submissionDate": "2024-08-20T17:00:00.000Z",
+      "openingDate": "2024-08-22T11:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 5000000000,
+        "certifications": ["ARAI Approved", "ISO 14001"]
+      }
+    ]
+  },
+  {
+    "tenderId": "MOCKAPI-1123",
+    "source": "MockAPI",
+    "title": "Group Health Insurance Policy for Employees",
+    "description": "Providing comprehensive health insurance coverage for 50,000 government employees and their dependents.",
+    "category": "Insurance Services",
+    "value": 400000000,
+    "deadlines": {
+      "submissionDate": "2024-05-30T15:00:00.000Z",
+      "openingDate": "2024-06-01T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 2000000000,
+        "certifications": ["IRDAI Registration"]
+      }
+    ]
+  },
+  {
+    "tenderId": "GEM-2024-0899",
+    "source": "GeM",
+    "title": "Printing and Supply of School Textbooks",
+    "description": "Printing of 2 million textbooks for primary grades on 70 GSM paper as per specified curriculum.",
+    "category": "Printing Services",
+    "value": 55000000,
+    "deadlines": {
+      "submissionDate": "2024-04-15T18:00:00.000Z",
+      "openingDate": "2024-04-16T10:30:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 100000000,
+        "certifications": ["FSC Certified Paper", "ISO 9001"]
+      }
+    ]
+  },
+  {
+    "tenderId": "EPROC-GJ-2234",
+    "source": "eProcurement",
+    "title": "Solid Waste Management and Recycling Plant",
+    "description": "Design, build, operate, and maintain a 500 TPD municipal solid waste processing facility.",
+    "category": "Sanitation & Waste Management",
+    "value": 320000000,
+    "deadlines": {
+      "submissionDate": "2024-09-10T17:00:00.000Z",
+      "openingDate": "2024-09-12T11:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 800000000,
+        "certifications": ["ISO 14001", "Pollution Control Board Clearance"]
+      }
+    ]
+  },
+  {
+    "tenderId": "MOCKAPI-4456",
+    "source": "MockAPI",
+    "title": "Comprehensive Cybersecurity Audit",
+    "description": "Vulnerability assessment and penetration testing (VAPT) for all critical citizen-facing web portals.",
+    "category": "Consulting Services",
+    "value": 3500000,
+    "deadlines": {
+      "submissionDate": "2024-03-05T15:00:00.000Z",
+      "openingDate": "2024-03-06T10:00:00.000Z"
+    },
+    "requirements": [
+      {
+        "turnover": 10000000,
+        "certifications": ["CERT-In Empaneled", "ISO 27001"]
+      }
+    ]
+  }
+]
