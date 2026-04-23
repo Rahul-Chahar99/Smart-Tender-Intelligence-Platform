@@ -17,7 +17,7 @@ router.post("/login", logInUser);
 router.post("/logout", verifyCompanyJWT, logOutUser);
 router.get("/current-company", verifyCompanyJWT, getUser);
 router.post("/refresh-token", refreshAcessToken);
-router.route('/tenders/:id').get(verifyCompanyJWT,getTenders)
 router.route("/tenders/:tenderId/apply").post(verifyCompanyJWT, applyForTender);
+router.route('/tenders/:id').get(verifyCompanyJWT,getTenders)
 
 export default router;

@@ -357,7 +357,8 @@ const applyForTender = asyncHandler(async (req, res) => {
   }
 
   const company = await Company.findById(companyId);
-  if (company.appliedTenders.includes(tenderId)) {
+  // Convert MongoDB ObjectIds to strings before comparing
+  if (company.appliedTenders.some(id => id.toString() === tenderId)) {
     throw new ApiError(400, "You have already applied for this tender");
   }
 
