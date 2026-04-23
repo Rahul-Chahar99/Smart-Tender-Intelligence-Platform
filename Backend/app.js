@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "*",
+    origin: process.env.CORS_ORIGIN || (process.env.NODE_ENV === "production" ? "https://smart-tender-intelligence-platform.vercel.app" : "http://localhost:5173"),
     credentials: true,
   })
 );

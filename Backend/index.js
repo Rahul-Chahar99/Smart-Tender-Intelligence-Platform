@@ -11,10 +11,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // --- Socket.io Setup ---
 const server = http.createServer(app);
+
 const allowedOrigin =
-  process.env.NODE_ENV === "production"
-    ? process.env.CORS_ORIGIN || "https://smart-tender-intelligence-platform.vercel.app/"
-    : "http://localhost:5173";
+  process.env.CORS_ORIGIN || (process.env.NODE_ENV === "production" ? "https://smart-tender-intelligence-platform.vercel.app" : "http://localhost:5173");
 
 const io = new Server(server, {
   cors: {
