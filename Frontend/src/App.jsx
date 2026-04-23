@@ -34,7 +34,7 @@ function App() {
   }, [userInfo]);
 
   useEffect(() => {
-    // Axios interceptor — refresh token on 401
+    
     const interceptorId = axios.interceptors.response.use(
       (response) => response,
       async (error) => {

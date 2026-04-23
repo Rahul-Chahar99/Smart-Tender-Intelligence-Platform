@@ -41,11 +41,6 @@ app.use("/api/v1/company", companyRouter);
 
 
 
-
-
-
-// http://localhost:8000/api/v1/users/register
-
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error("Global Error:", err); // Log error for server-side debugging

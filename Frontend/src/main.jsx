@@ -33,17 +33,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
-        {/* <Route path="/about" element={<About />} /> */}
+
         <Route
           path="/login"
           element={
-            // authentication={false} means only unauthenticated users can see this (redirects if logged in)
             <AuthLayout authentication={false}>
               <Login />
             </AuthLayout>
@@ -65,40 +63,13 @@ const router = createBrowserRouter(
             </AuthLayout>
           }
         />
-        {/* <Route path="/contact" element={<Contact />} /> */}
-        {/* <Route
-          path="/profile"
-          element={
-            // authentication={true} (default) means this route is protected; requires login
-            <AuthLayout authentication>
-              <Profile />
-            </AuthLayout>
-          }
-        /> */}
-        {/* <Route
-          path="/profile/update-password"
-          element={
-            <AuthLayout authentication>
-              <UpdatePassword />
-            </AuthLayout>
-          }
-        /> */}
-        {/* <Route
-          path="/admin-dashboard"
-          element={
-            <AuthLayout authentication>
-              <Admin_DashBoard />
-            </AuthLayout>
-          }
-        /> */}
-       
       </Route>
     </>,
   ),
 );
 
 createRoot(document.getElementById("root")).render(
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>,
 );

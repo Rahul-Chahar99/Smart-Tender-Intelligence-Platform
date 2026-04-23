@@ -112,10 +112,10 @@ const logInUser = asyncHandler(async (req, res) => {
   const isProduction = process.env.NODE_ENV === "production";
   const options = {
     httpOnly: true,
-    secure: isProduction, // true in production, false locally
-    sameSite: isProduction ? "none" : "lax", // "none" for cross-site (production), "lax" for same-site (local)
+    secure: isProduction, 
+    sameSite: isProduction ? "none" : "lax", 
     path: "/",
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    maxAge: 7 * 24 * 60 * 60 * 1000, 
   };
 
   return res
@@ -188,12 +188,11 @@ const refreshAcessToken = asyncHandler(async (req, res) => {
     if (!user) {
       throw new ApiError(401, "Invalid refresh token");
     }
-    // Security Check: Ensure the token provided matches the one stored in the DB
-    // If they don't match, the token might have been reused or the user logged out elsewhere
+   
     if (incomingRefreshToken !== user?.refreshToken) {
       throw new ApiError(401, "Refresh Token is expired");
     }
-    // 🔧 LOCAL vs PRODUCTION: Automatically adapts based on NODE_ENV
+    
     const isProduction = process.env.NODE_ENV === "production";
     const options = {
       httpOnly: true,
@@ -202,7 +201,7 @@ const refreshAcessToken = asyncHandler(async (req, res) => {
       path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     };
-    // Generate NEW tokens (Rotation)
+   
     const { accessToken, newRefreshToken } =
       await generateAccessAndRefreshToken(user._id);
 
@@ -257,43 +256,35 @@ const getTenders = asyncHandler(async (req, res) => {
 
   const searchWords = [];
 
-  // Check if the company actually has any certifications
+  
   if (companydetails.certifications && companydetails.certifications.length > 0) {
     // Loop through each certification the company has (e.g., "ISO 9001")
     for (let i = 0; i < companydetails.certifications.length; i++) {
       const cert = companydetails.certifications[i];
 
-      // Break the certification string apart by spaces: ["ISO", "9001"]
       const words = cert.split(" ");
 
-      // Loop through those separated words
       for (let j = 0; j < words.length; j++) {
         const word = words[j];
-        // Ignore single letters so we don't accidentally match random things
         if (word.length > 1) {
-          // Add it to our search array as a case-insensitive regular expression
           searchWords.push(new RegExp(word, "i"));
         }
       }
     }
   }
   
-  // Tell MongoDB to find tenders that have ANY of these words
   query["requirements.certifications"] = { $in: searchWords };
 
-  // Extract past project keywords to score experience
   const pastProjectCategories = (companydetails.pastProjects || [])
     .map(p => typeof p === 'string' ? p : p?.category || p?.title || "")
     .filter(Boolean);
 
-  // 3. Execute the Aggregation Pipeline using $facet for pagination
   const pipeline = [
     { $match: query },
     {
       $addFields: {
         matchScore: {
           $add: [
-            // 1. Turnover: 30 points if the company's turnover >= tender's requirement
             {
               $cond: [
                 {
@@ -306,7 +297,6 @@ const getTenders = asyncHandler(async (req, res) => {
                 0
               ]
             },
-            // 2. Certifications: 10 points for every matching certification
             {
               $multiply: [
                 {
@@ -320,7 +310,6 @@ const getTenders = asyncHandler(async (req, res) => {
                 10
               ]
             },
-            // 3. Past Experience: 30 points if tender category matches a past project category/title
             {
               $cond: [
                 { $in: ["$category", pastProjectCategories] },
@@ -332,7 +321,6 @@ const getTenders = asyncHandler(async (req, res) => {
         }
       }
     },
-    // 4. Sort the results so highest-scored tenders are at the top
     { $sort: { matchScore: -1 } },
     {
       $facet: {
