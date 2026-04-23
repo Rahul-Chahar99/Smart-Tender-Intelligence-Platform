@@ -7,7 +7,8 @@ import {
   refreshAcessToken,
 } from "../Controllers/company.controller.js";
 import { verifyCompanyJWT } from "../middleware/companyAuth.middleware.js";
-import { getTenders } from "../Controllers/company.controller.js";
+import { getTenders,applyForTender } from "../Controllers/company.controller.js";
+
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.post("/logout", verifyCompanyJWT, logOutUser);
 router.get("/current-company", verifyCompanyJWT, getUser);
 router.post("/refresh-token", refreshAcessToken);
 router.route('/tenders/:id').get(verifyCompanyJWT,getTenders)
+router.route("/tenders/:tenderId/apply").post(verifyCompanyJWT, applyForTender);
 
 export default router;
